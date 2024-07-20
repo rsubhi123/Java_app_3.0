@@ -14,6 +14,7 @@ pipeline{
     }
 
     stages{
+         stage('Run Tests In Parallel') {
         parallel {
         stage('Git Checkout'){
                     when { expression {  params.action == 'create' } }
@@ -111,4 +112,5 @@ pipeline{
         } 
     }
   }
+}
 }
