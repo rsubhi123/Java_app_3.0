@@ -14,7 +14,7 @@ pipeline{
     }
 
     stages{
-         
+        parallel {
         stage('Git Checkout'){
                     when { expression {  params.action == 'create' } }
             steps{
@@ -108,6 +108,7 @@ pipeline{
                    dockerImageCleanup("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
                }
             }
-        }      
+        } 
     }
+}
 }
